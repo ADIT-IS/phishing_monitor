@@ -38,7 +38,7 @@ from anomaly_detector import detect_anomaly
 
 
 
-from app.feature_extractor import extract_features_from_url
+from feature_extractor import extract_features_from_url
 import joblib
 
 app = Flask(__name__)
@@ -61,6 +61,7 @@ def predict():
 def get_alerts():
     return jsonify(alerts)
 
-def start_api():
-    app.run(port=5000)
+if __name__ == "__main__":
+    print("[INFO] Running Flask app on port 5000...")
+    app.run(host="0.0.0.0", port=5000)
 
