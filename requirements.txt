@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+keras
+scikit-learn
+pyod
+joblib
+pandas
+numpy
+kafka-python
+scapy
+tldextract
+flask
