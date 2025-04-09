@@ -3,10 +3,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 # from app.detector import predict_phishing, detect_anomaly
 from flask import Flask, request, jsonify
-from app.detector import load_model
+from detector import load_model
 
-from app.detector import predict_phishing
-from app.anomaly_detector import detect_anomaly
+from detector import predict_phishing
+from anomaly_detector import detect_anomaly
 
 
 

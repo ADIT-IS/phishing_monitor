@@ -22,7 +22,7 @@
 
 from scapy.all import sniff, TCP, Raw
 from urllib.parse import urlparse
-from .queue import url_queue
+from task_queue import url_queue
 
 def packet_callback(packet):
     if packet.haslayer(Raw) and packet.haslayer(TCP):

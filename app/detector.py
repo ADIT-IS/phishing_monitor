@@ -28,7 +28,7 @@
 import time
 import threading
 import requests
-from .queue import url_queue
+from task_queue import url_queue
 import joblib
 
 # def load_model():
@@ -60,7 +60,7 @@ import joblib
 
 
 import joblib
-from app.feature_extractor import extract_features_from_url
+from feature_extractor import extract_features_from_url
 ML_MODEL_API = "http://localhost:5000/predict"
 
 # Load model once
