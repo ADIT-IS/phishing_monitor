@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Security Checker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center px-4">
+    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg max-w-md w-full">
+      <h1 class="text-2xl font-bold mb-6 text-center text-green-400">🔐 URL Security Checker</h1>
+
+      <form id="checkForm" class="space-y-4">
+        <input
+          type="url"
+          id="urlInput"
+          placeholder="Paste URL here..."
+          class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+          required
+        />
+
+        <button
+          type="submit"
+          class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
+        >
+          Check URL
+        </button>
+      </form>
+
+      <div id="result" class="mt-6 hidden border-t border-gray-700 pt-4">
+        <p class="text-lg"><span class="font-semibold">Score:</span> <span id="score" class="text-green-400">--</span></p>
+        <p class="text-lg"><span class="font-semibold">Verdict:</span> <span id="verdict" class="text-green-400">--</span></p>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById('checkForm');
+      const urlInput = document.getElementById('urlInput');
+      const resultBox = document.getElementById('result');
+      const scoreSpan = document.getElementById('score');
+      const verdictSpan = document.getElementById('verdict');
+    
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const url = urlInput.value.trim();
+        if (!url) return;
+    
+        resultBox.classList.add('hidden');
+        scoreSpan.textContent = "--";
+        verdictSpan.textContent = "--";
+        scoreSpan.className = '';
+        verdictSpan.className = '';
+    
+        try {
+          const res = await fetch('/check', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url })
+          });
+    
+          if (!res.ok) throw new Error('Failed to fetch');
+          const data = await res.json();
+    
+          const isSafe = data.verdict?.toLowerCase() === "likely safe";
+    
+          scoreSpan.textContent = data.score ?? "N/A";
+          verdictSpan.textContent = data.verdict ?? "Unknown";
+    
+          const colorClass = isSafe ? 'text-green-400' : 'text-red-400';
+          scoreSpan.className = colorClass;
+          verdictSpan.className = colorClass;
+    
+          resultBox.classList.remove('hidden');
+        } catch (err) {
+          alert("Error checking URL. Please try again.");
+        }
+      });
+    </script>
+    
+  </body>
+</html>
