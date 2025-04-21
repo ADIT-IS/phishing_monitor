@@ -1,0 +1,6 @@
+timestamp,src_ip,url,URL_Length,having_Sub_Domain,domain_token_count,path_token_count,charcompvowels,URL_Letter_Count,host_letter_count,Directory_LetterCount,ldl_url,domainlength,pathLength,pathurlRatio,domainUrlRatio,pathDomainRatio,SymbolCount_URL,SymbolCount_Domain,entropy_url,entropy_path,spcharUrl,delimeter_Count,label
+2025-04-20T14:57:05.950810,34.223.124.45,https://gist.github.com/markcwebster/9bdf30655cdd5279bad13993ac87c85d,69,1,3,3,9,43,13,25,69,15,46,0.6666666666666666,0.21739130434782608,3.066666666666667,7,2,4.672385559244823,4.221946673862943,7,6,0
+2025-04-20T14:57:05.962903,34.223.124.45,http://',8,0,2,1,0,4,0,0,8,1,0,0.0,0.125,0.0,4,1,2.5,0,4,2,0
+2025-04-20T14:57:05.973436,34.223.124.45,http://neverssl.com,19,0,2,1,3,15,11,0,19,12,0,0.0,0.631578947368421,0.0,4,1,3.8268748818646365,0,4,3,0
+2025-04-20T14:57:05.981442,34.223.124.45,https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security,60,1,3,3,15,50,14,31,60,16,36,0.6,0.26666666666666666,2.25,7,2,4.3770497632448375,4.072431251322119,7,6,0
+2025-04-20T14:57:05.989853,34.223.124.45,https://twitter.com/neverssl,28,0,2,2,5,23,10,8,28,11,9,0.32142857142857145,0.39285714285714285,0.8181818181818182,5,1,3.811844101310203,2.725480556997868,5,4,0
